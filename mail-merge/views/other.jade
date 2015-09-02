@@ -1,0 +1,57 @@
+extends layout
+
+block content
+  h1 Mail Merger
+  //- div
+  //-   form(name='add-estimation', method='post')
+  //-     #section1
+  //-       | Enter names / emails (one per line)
+  //-       br
+  //-       br
+  //-       br
+  //-       br
+  //-       br
+  //-       br
+  //-       br
+  //-       br
+  //-       .input
+  //-         span.label  
+  //-         textarea(name='description', cols='80', rows='10') Joe,Jones,joe@example.com
+  //-     #section2
+  //-       p Enter the text.  The following substitutions are valid:
+  //-       ul
+  //-         li {first}
+  //-         li {last}
+  //-         li {email}
+  //-     .actions
+  //-       input(type='submit', value='add')
+  div
+    .row
+      .column1 Enter names / emails (one per line)
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        .input
+          span.label  
+          textarea(name='description', cols='100', rows='10') Joe,Jones,joe@example.com
+
+
+      .column2 Enter the text.  The following substitutions are valid:
+        ul
+          li {first}
+          li {last}
+          li {email} 
+          br
+        .input
+          span.label  
+          textarea(name='description', cols='100', rows='2') Subject
+        .input
+          span.label  
+          textarea(name='description', cols='100', rows='8') Body
+      
+      
+    

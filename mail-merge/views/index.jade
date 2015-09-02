@@ -1,0 +1,32 @@
+extends layout
+
+block content
+  h1 Mail Merger
+  div
+    form(name='add-estimation', method='post')
+      #section1
+        | Enter names / emails (one per line)
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        br
+        .input
+          span.label  
+          textarea(name='description', cols='80', rows='10') Joe,Jones,joe@example.com
+      #section2
+        p Enter the text.  The following substitutions are valid:
+        ul
+          li {first}
+          li {last}
+          li {email}
+      .actions
+        input(type='submit', value='add')
+  div
+    .row
+      .column1 column one stuff goes here
+      .column2 column two stuff goes here
+
