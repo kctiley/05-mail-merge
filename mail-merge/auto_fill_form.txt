@@ -1,0 +1,4 @@
+document.getElementById('submit_to').innerHTML = "John Doe '\n' Second Line Doug"
+document.getElementById('submit_subject').innerHTML = 'New subject'
+document.getElementById('submit_body').innerHTML = 'Any new message'
+document.getElementById('mail_form').submit();
