@@ -1,57 +1,43 @@
 extends layout
 
 block content
-  h1 Mail Merger
-  //- div
-  //-   form(name='add-estimation', method='post')
-  //-     #section1
-  //-       | Enter names / emails (one per line)
-  //-       br
-  //-       br
-  //-       br
-  //-       br
-  //-       br
-  //-       br
-  //-       br
-  //-       br
-  //-       .input
-  //-         span.label  
-  //-         textarea(name='description', cols='80', rows='10') Joe,Jones,joe@example.com
-  //-     #section2
-  //-       p Enter the text.  The following substitutions are valid:
-  //-       ul
-  //-         li {first}
-  //-         li {last}
-  //-         li {email}
-  //-     .actions
-  //-       input(type='submit', value='add')
+  h1 #{title}
   div
-    .row
-      .column1 Enter names / emails (one per line)
-        br
-        br
-        br
-        br
-        br
-        br
-        br
-        .input
-          span.label  
-          textarea(name='description', cols='100', rows='10') Joe,Jones,joe@example.com
-
-
-      .column2 Enter the text.  The following substitutions are valid:
-        ul
-          li {first}
-          li {last}
-          li {email} 
+    form(name="mail_form", method="post" action="/other")
+      .row
+        .column1 Enter names / emails (one per line)
           br
-        .input
-          span.label  
-          textarea(name='description', cols='100', rows='2') Subject
-        .input
-          span.label  
-          textarea(name='description', cols='100', rows='8') Body
-      
+          br
+          br
+          br
+          br
+          br
+          br
+          .input
+            span.label  
+            textarea(name='submit_to', cols='100', rows='10', id='submit_to') #{to}
+
+
+        .column2 Enter the text.  The following substitutions are valid:
+          ul
+            li {first}
+            li {last}
+            li {email} 
+            br
+          .input
+            span.label  
+          textarea(name='submit_subject', cols='100', rows='2', id="submit_subject") #{subject}
+          .input
+            span.label  
+            textarea(name='submit_body', cols='100', rows='8', id="submit_body") #{body}
+          .actions(align:right)
+            input(type="submit", value="Preview" id="submit_form")
+  .row
+    if update
+      each item in to_list      
+        ul= item 
+     
+
+
       
     
