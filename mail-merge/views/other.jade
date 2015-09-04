@@ -1,41 +1,43 @@
 extends layout
 
 block content
-  h1 #{title}
-  div
-    form(name="mail_form", method="post" action="/other" id="mail_form")
-      .row
-        .column1 Enter names / emails (one per line)
-          br
-          br
-          br
-          br
-          br
-          br
-          br
-          .input
-            span.label  
-            textarea(name='submit_to', cols='100', rows='10', id='submit_to') #{to}
+  header
+    h1 #{title}
+  table(width='100%')
+    tr
+      td(width='50%', height= '100') Enter first name, last name, and email (one per line)
+      td Enter subject and message body (one per line)
+        ul
+          ul subject
+          ul message body
+  form(name="mail_form", method="post" action="/other" id="mail_form")
+    .formandstuff        
+      table(width='100%')
+        tr
+          td
+            .input
+              label(for= 'submit_to') Send to:
+              textarea(name='submit_to', cols='70', rows='14', id='submit_to') #{to}
+          td
+            .input
+              label(for= 'submit_subject') Subject:  
+              textarea(name='submit_subject', cols='130', rows='2', id="submit_subject") #{subject}
+            .input
+              label(for= 'submit_body') Message: 
+              textarea(name='submit_body', cols='130', rows='10', id="submit_body") #{body}
+        tr
+          td
+          td     
+            .actions
+              input(type="submit", value="Preview" id="submit_form")
+  if update
+    .parent2
+      each item in to_list
+        .emaileach
+                ul= item
+                ul #{subject} 
+                ul #{body}
 
-
-        .column2 Enter the text.  The following substitutions are valid:
-          ul
-            li {first}
-            li {last}
-            li {email} 
-            br
-          .input
-            span.label  
-          textarea(name='submit_subject', cols='100', rows='2', id="submit_subject") #{subject}
-          .input
-            span.label  
-            textarea(name='submit_body', cols='100', rows='8', id="submit_body") #{body}
-          .actions(align:right)
-            input(type="submit", value="Preview" id="submit_form")
-  .row
-    if update
-      each item in to_list      
-        ul= item 
      
 
 

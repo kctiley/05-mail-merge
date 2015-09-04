@@ -1,32 +1,36 @@
 extends layout
 
 block content
-  h1 Mail Merger
-  div
-    form(name='add-estimation', method='post')
-      #section1
-        | Enter names / emails (one per line)
-        br
-        br
-        br
-        br
-        br
-        br
-        br
-        br
-        .input
-          span.label  
-          textarea(name='description', cols='80', rows='10') Joe,Jones,joe@example.com
-      #section2
-        p Enter the text.  The following substitutions are valid:
+  header
+    h1 #{title}
+  table(width='100%')
+    tr
+      td(width='50%', height= '100') Enter first name, last name, and email (one per line)
+      td Enter subject and message body (one per line)
         ul
-          li {first}
-          li {last}
-          li {email}
-      .actions
-        input(type='submit', value='add')
-  div
-    .row
-      .column1 column one stuff goes here
-      .column2 column two stuff goes here
-
+          ul subject
+          ul message body
+    form(name="mail_form", method="post" action="/other" id="mail_form")        
+      table(width='100%')
+        tr
+          td
+            .input
+              textarea(name='submit_to', cols='100', rows='10', id='submit_to') #{to}
+          td
+            .input  
+              textarea(name='submit_subject', cols='100', rows='2', id="submit_subject") #{subject}
+            .input
+              span.label  
+              textarea(name='submit_body', cols='100', rows='8', id="submit_body") #{body}
+            .actions(align:right)
+              input(type="submit", value="Preview" id="submit_form")
+  if update
+    .parent
+      each item in to_list
+        aside#featured.body
+          article
+            figure
+              .emaileach
+                ul= item
+                ul #{subject} 
+                ul #{body}

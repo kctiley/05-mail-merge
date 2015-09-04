@@ -1,23 +1,48 @@
+html { background-color: black; }
+
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  background: #AFDCEC
 }
 
-a {
-  color: #00B7FF;
+header {
+  background: white;
+  color: #000305;
+  font-size: 87.5%; /* Base font size: 14px */
+  font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  line-height: 1.429;
+  margin: 20;
+  padding: 0;
+  text-align: left;
 }
 
-.column1 {
-    float:left;
-    padding:10px;
-    text-align:left
+input[type=submit]{
+  background: #52D017;
+  box-shadow: 2px 2px 2px black
 }
 
-.column2 {
-    float:right;
-    padding:10px;
-    text-align:left
+.formandstuff {
+  border: 3px solid blue;
+  background: #BCC6CC
 }
+
+aside {
+  background: #F5F4EF
+  
+}
+
+.parent2 {
+  background: white;
+  border: 2px solid red;
+  
+}
+
+.emaileach {
+  border: 2px solid green;
+}
+
 
 
 #submit_form {
@@ -30,4 +55,20 @@ a {
 
 }
 
+.row3 {
+  border: solid 10px #CCC;
+}
+
+.row2 { 
+  border: solid 1px #CCC;
+}
+
+.row1 { 
+  border: solid 1px #FF0000;
+}
+
+
+.parent { 
+  border: solid 2px #0020C2;
+}
 
