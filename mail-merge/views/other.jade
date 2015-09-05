@@ -34,9 +34,12 @@ block content
     .parent2
       each item in to_list
         .emaileach
-                ul= item.firstName + ' ' + item.lastName + ' ' + '<' + item.email + '>'
-                ul #{subject} 
-                ul #{body}
+          ul= 'To: ' + item.firstName + ' ' + item.lastName + ' ' + '<' + item.email + '>'
+          ul Subject: #{subject} 
+          ul Message:
+            each line in body
+              .emailbodytext
+                ul= line
 
      
 

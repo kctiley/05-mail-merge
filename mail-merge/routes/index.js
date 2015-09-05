@@ -16,9 +16,9 @@ router.post('/other', function (req, res) {
     var submit_subject = req.body.submit_subject;
     var submit_body = req.body.submit_body;
 
-    var eachLine =[];
-    eachLine = req.body.submit_to.split('\n');//This is an array of strings        
-    
+    //Logic to convert submit_to text area to array of objects
+    var eachLineSubmitTO =[];
+    eachLine = req.body.submit_to.split('\n');//This is an array of strings of each line            
     var convertToObject = function (){
         var objArr = [];
           for (var i = 0; i < eachLine.length; i++){
@@ -30,11 +30,18 @@ router.post('/other', function (req, res) {
          }
          return objArr
     }
-    var contactInfo = convertToObject();
+    var contactInfo = convertToObject();//contactInfo is array of objects
 
 
-    res.render('other', { title: 'Mail Merger Confirmation Page', to: submit_to, subject: submit_subject,
-      body: submit_body, update: true, to_list: contactInfo} )
+    //Convert submit_body text area to array of separate lines.
+    var eachLineSubmitBody =[];
+    eachLineBodyToArr = req.body.submit_body.split('\n');//This is an array of strings            
+
+
+
+
+    res.render('other', { title: 'Preview Page', to: submit_to, subject: submit_subject,
+      body: eachLineBodyToArr, update: true, to_list: contactInfo} )
 });
 
 module.exports = router;
