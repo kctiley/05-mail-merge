@@ -10,27 +10,30 @@ block content
         ul
           ul subject
           ul message body
-    form(name="mail_form", method="post" action="/other" id="mail_form")        
+  form(name="mail_form", method="post" action="/other" id="mail_form")
+    .formandstuff        
       table(width='100%')
         tr
           td
             .input
-              textarea(name='submit_to', cols='100', rows='10', id='submit_to') #{to}
+              label(for= 'submit_to') Send to:
+              textarea(name='submit_to', cols='70', rows='14', id='submit_to') #{to}
           td
-            .input  
-              textarea(name='submit_subject', cols='100', rows='2', id="submit_subject") #{subject}
             .input
-              span.label  
-              textarea(name='submit_body', cols='100', rows='8', id="submit_body") #{body}
-            .actions(align:right)
+              label(for= 'submit_subject') Subject:  
+              textarea(name='submit_subject', cols='130', rows='2', id="submit_subject") #{subject}
+            .input
+              label(for= 'submit_body') Message: 
+              textarea(name='submit_body', cols='130', rows='10', id="submit_body") #{body}
+        tr
+          td
+          td     
+            .actions
               input(type="submit", value="Preview" id="submit_form")
   if update
-    .parent
+    .parent2
       each item in to_list
-        aside#featured.body
-          article
-            figure
-              .emaileach
-                ul= item
+        .emaileach
+                ul= item.firstName + ' ' + item.lastName + ' ' + '<' + item.email + '>'
                 ul #{subject} 
                 ul #{body}

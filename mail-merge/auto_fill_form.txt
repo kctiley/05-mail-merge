@@ -1,4 +1,4 @@
-document.getElementById('submit_to').innerHTML = "John Doe '\n' Second Line Doug"
+document.getElementById('submit_to').innerHTML = "John, Smith, js@email.com \n Doug, McSecondline, dm@email.com \n Felipe, de Thirdline, fd@email.com"
 document.getElementById('submit_subject').innerHTML = 'New subject'
 document.getElementById('submit_body').innerHTML = 'Any new message'
 document.getElementById('mail_form').submit();

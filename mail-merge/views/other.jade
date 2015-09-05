@@ -34,7 +34,7 @@ block content
     .parent2
       each item in to_list
         .emaileach
-                ul= item
+                ul= item.firstName + ' ' + item.lastName + ' ' + '<' + item.email + '>'
                 ul #{subject} 
                 ul #{body}
 
