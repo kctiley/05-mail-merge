@@ -37,3 +37,42 @@ block content
                 ul= item.firstName + ' ' + item.lastName + ' ' + '<' + item.email + '>'
                 ul #{subject} 
                 ul #{body}
+extends layout
+
+block content
+  header
+    h1 #{title}
+  table(width='100%')
+    tr
+      td(width='50%', height= '100') Enter first name, last name, and email (one per line)
+      td Enter subject and message body (one per line)
+        ul
+          ul subject
+          ul message body
+  form(name="mail_form", method="post" action="/other" id="mail_form")
+    .formandstuff        
+      table(width='100%')
+        tr
+          td
+            .input
+              label(for= 'submit_to') Send to:
+              textarea(name='submit_to', cols='70', rows='14', id='submit_to') #{to}
+          td
+            .input
+              label(for= 'submit_subject') Subject:  
+              textarea(name='submit_subject', cols='130', rows='2', id="submit_subject") #{subject}
+            .input
+              label(for= 'submit_body') Message: 
+              textarea(name='submit_body', cols='130', rows='10', id="submit_body") #{body}
+        tr
+          td
+          td     
+            .actions
+              input(type="submit", value="Preview" id="submit_form")
+  if update
+    .parent2
+      each item in to_list
+        .emaileach
+                ul= item.firstName + ' ' + item.lastName + ' ' + '<' + item.email + '>'
+                ul #{subject} 
+                ul #{body}

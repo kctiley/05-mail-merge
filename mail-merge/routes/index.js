@@ -18,7 +18,8 @@ router.post('/other', function (req, res) {
 
     //Logic to convert submit_to text area to array of objects
     var eachLineSubmitTO =[];
-    eachLine = req.body.submit_to.split('\n');//This is an array of strings of each line            
+    eachLine = req.body.submit_to.split('\n');//This is an array of strings of each line 
+    var numOfRecipients = eachLine.length           
     var convertToObject = function (){
         var objArr = [];
           for (var i = 0; i < eachLine.length; i++){
@@ -41,7 +42,7 @@ router.post('/other', function (req, res) {
 
 
     res.render('other', { title: 'Preview Page', to: submit_to, subject: submit_subject,
-      body: eachLineBodyToArr, update: true, to_list: contactInfo} )
+      body: eachLineBodyToArr, update: true, to_list: contactInfo, numOfRecipients: numOfRecipients} )
 });
 
 module.exports = router;

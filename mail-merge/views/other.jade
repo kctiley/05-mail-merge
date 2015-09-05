@@ -31,6 +31,8 @@ block content
             .actions
               input(type="submit", value="Preview" id="submit_form")
   if update
+    table(width='10%')
+      ul Sending to #{numOfRecipients} recipients
     .parent2
       each item in to_list
         .emaileach
