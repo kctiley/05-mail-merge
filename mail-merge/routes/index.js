@@ -36,13 +36,27 @@ router.post('/other', function (req, res) {
 
     //Convert submit_body text area to array of separate lines.
     var eachLineSubmitBody =[];
-    eachLineBodyToArr = req.body.submit_body.split('\n');//This is an array of strings            
-
-
+    eachLineBodyToArr = req.body.submit_body.split('\n');//This is an array of strings  
 
 
     res.render('other', { title: 'Preview Page', to: submit_to, subject: submit_subject,
       body: eachLineBodyToArr, update: true, to_list: contactInfo, numOfRecipients: numOfRecipients} )
 });
 
+
+
 module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
+
+

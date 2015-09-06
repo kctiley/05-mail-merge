@@ -6,10 +6,11 @@ block content
   table(width='100%')
     tr
       td(width='50%', height= '100') Enter first name, last name, and email (one per line)
-      td Enter subject and message body (one per line)
+      td Enter text in message area. The following substitutions are valid:
         ul
-          ul subject
-          ul message body
+          ul {first}
+          ul {last}
+          ul {email}
   form(name="mail_form", method="post" action="/other" id="mail_form")
     .formandstuff        
       table(width='100%')
@@ -17,31 +18,43 @@ block content
           td
             .input
               label(for= 'submit_to') Send to:
-              textarea(name='submit_to', cols='70', rows='14', id='submit_to') #{to}
+              textarea(name='submit_to', cols='40', rows='14', id='submit_to') #{to}
           td
             .input
               label(for= 'submit_subject') Subject:  
-              textarea(name='submit_subject', cols='130', rows='2', id="submit_subject") #{subject}
+              textarea(name='submit_subject', cols='90', rows='2', id="submit_subject") #{subject}
             .input
               label(for= 'submit_body') Message: 
-              textarea(name='submit_body', cols='130', rows='10', id="submit_body") #{body}
+              textarea(name='submit_body', cols='90', rows='10', id="submit_body") #{body}
         tr
           td
           td     
             .actions
-              input(type="submit", value="Preview" id="submit_form")
+              input(type="submit", value="Preview", id="submit_form")
   if update
     table(width='10%')
       ul Sending to #{numOfRecipients} recipients
     .parent2
       each item in to_list
         .emaileach
+          p.example This is a paragraph with class="example".
+          p Below is a button with id = #{item.firstName}
+          button(id= 'item.firstName' onclick='myFunction()')= 'Button' + ' ' + item.firstName
+          script.
+            function myFunction() {
+              var x = document.querySelectorAll(".example");
+              x[0].style.backgroundColor = "red";
+              x[1].style.backgroundColor = "blue";  
+            }
+
           ul= 'To: ' + item.firstName + ' ' + item.lastName + ' ' + '<' + item.email + '>'
           ul Subject: #{subject} 
           ul Message:
             each line in body
               .emailbodytext
-                ul= line
+                ul= line.replace("{first}", item.firstName).replace("{last}", item.lastName).replace("{email}", item.email)
+          ul#messages        
+
 
      
 

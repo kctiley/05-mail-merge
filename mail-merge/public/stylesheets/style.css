@@ -10,12 +10,12 @@ body {
 header {
   background: white;
   color: #000305;
-  font-size: 87.5%; /* Base font size: 14px */
+  font-size: 24px; /* Base font size: 14px */
   font-family: 'Trebuchet MS', Trebuchet, 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   line-height: 1.429;
   margin: 20;
   padding: 0;
-  text-align: left;
+  text-align: center;
 }
 
 input[type=submit]{
@@ -25,12 +25,8 @@ input[type=submit]{
 
 .formandstuff {
   border: 3px solid blue;
-  background: #BCC6CC
-}
-
-aside {
-  background: #F5F4EF
-  
+  background: #BCC6CC;
+  font-size: 20px;
 }
 
 .parent2 {
@@ -52,12 +48,10 @@ aside {
     height: 25px;
     width: 115px;
     color: white;
-
 }
 
-
-
-.parent { 
-  border: solid 2px #0020C2;
+textarea {
+  font-size: 16px;
 }
+
 
